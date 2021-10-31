@@ -1,0 +1,157 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication2;
+
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Fawaz
+ */
+public class JavaApplication2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    
+        /*
+       int array[] = new int[5];
+        int input = 0;
+        int numberofodd = 0;
+        for (int i = 0; i < array.length; i++) {
+            array[i] = Integer.parseInt(JOptionPane.showInputDialog("Enter numbers"));
+        }
+ 
+        for (int i = 0; i <  array.length; i++) {
+            if (array[i]%2 != 0) {
+                System.out.println(array[i]);
+                numberofodd++;
+            }
+ 
+        }
+        System.out.println("Number of odd is : " + numberofodd);
+        System.out.println("=======================");
+       */
+        int numberofstudent = Integer.parseInt(JOptionPane.showInputDialog("Enter numbers of student"));
+        int StudentID[] = new int[numberofstudent];
+        String StudentName[] = new String[numberofstudent];
+        int StudentGrade[] = new int[numberofstudent];
+        int method = 0;
+        int speficStudent = 0;
+        String speficStudentName = "";
+
+        int Didfoundstudent = 0;
+        int sum=0;
+ 
+        for (int i = 0; i < numberofstudent; i++) {
+            StudentID[i] = Integer.parseInt(JOptionPane.showInputDialog((i+1) + " of " + numberofstudent + " | Enter Student ID"));
+            StudentName[i] = JOptionPane.showInputDialog((i+1) + " of " + numberofstudent + " | Enter Student Name");
+ 
+ 
+                StudentGrade[i] = Integer.parseInt(JOptionPane.showInputDialog((i+1) + " of " + numberofstudent + " | Enter Student Grade")); 
+ 
+        }
+ 
+        while (method != 5) {            
+          method = Integer.parseInt(JOptionPane.showInputDialog("1.To print all student infomation\n 2.To Print student sussced\n 3.To Print student fail\n 4.To print student by ID\n 5.To sum & avg \n 6.Search of ANmes \n 7.To Search btouen Grade 1 up 60 | 2 ander 60 \n------------\nNoice The total of student is : " + numberofstudent));
+           
+            
+          
+          
+         switch(method) {
+  case 1:
+      System.out.println("print all student infomation");
+     for (int i = 0; i < numberofstudent; i++) {
+                 System.out.println("ID : " + StudentID[i]);
+                 System.out.println("Name : " + StudentName[i]);
+                 System.out.println("Grade : " + StudentGrade[i]);
+                 System.out.println("----------------");
+             }
+       System.out.println("=======================================");
+    break;
+  case 2:
+           System.out.println(" Print student sussced"); 
+ 
+             for (int i = 0; i < numberofstudent; i++) {
+                 if(StudentGrade[i] >= 60){
+                    System.out.println("ID : " + StudentID[i]);
+                    System.out.println("Name : " + StudentName[i]);
+                    System.out.println("Grade : " + StudentGrade[i]);
+                    System.out.println("----------------");
+                 }
+             }
+ 
+              System.out.println("=======================================");
+    break;
+    
+  case 3:
+      System.out.println("Print student fail");
+        for (int i = 0; i < numberofstudent; i++) {
+                 if(StudentGrade[i] < 60){
+                    System.out.println("ID : " + StudentID[i]);
+                    System.out.println("Name : " + StudentName[i]);
+                    System.out.println("Grade : " + StudentGrade[i]);
+                    System.out.println("----------------");
+                 }
+             }
+         System.out.println("=======================================");
+      break;
+  case 4:
+      System.out.println("print student by ID");
+       speficStudent = Integer.parseInt(JOptionPane.showInputDialog("Enter student id"));
+             for (int i = 0; i < numberofstudent; i++) {
+                 if(StudentID[i] == speficStudent){
+                    System.out.println("ID : " + StudentID[i]);
+                    System.out.println("Name : " + StudentName[i]);
+                    System.out.println("Grade : " + StudentGrade[i]);
+                    System.out.println("----------------");
+                    Didfoundstudent = 1;
+                 }
+             }
+              System.out.println("=======================================");
+      break;
+      
+  
+      
+      case 5:
+           
+              for (int i = 0; i < StudentGrade[i]; i++) {
+                  
+                  sum=sum+StudentGrade[i];
+                  System.out.println(sum);
+              
+          }
+
+        
+              System.out.println("=======================================");
+                break;
+                
+                case 6:
+               System.out.println("print student by Name");
+       speficStudentName = JOptionPane.showInputDialog("Enter student Name");
+             for (int i = 0; i < numberofstudent; i++) {
+                 if(StudentName[i] == StudentName[i]){
+                    System.out.println("ID : " + StudentID[i]);
+                    System.out.println("Name : " + StudentName[i]);
+                    System.out.println("Grade : " + StudentGrade[i]);
+                    System.out.println("----------------");
+                    Didfoundstudent = 1;
+                 }
+             }
+              System.out.println("=======================================");
+                break;
+              
+  default:
+    JOptionPane.showMessageDialog(null,"Thank you for using out program");
+}
+          
+ 
+ 
+    } 
+ 
+}}
+    
