@@ -1,0 +1,86 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication2;
+
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author CTI
+ */
+public class JavaApplication2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+      
+           int x=Integer.parseInt(JOptionPane.showInputDialog("أدخل عدد الطلاب"));
+   
+          String [] name=new String [x];
+        int [] mark=new int [x];
+       
+
+       //   int mark[] = new int[] {78, 81, 52, 92, 48, 90, 66, 40, 96,84};
+         // String name[]= {"Ahmad", "Mohammed", "Naser", "Saleem",
+         // "Adel", "Khaled", "Ali", "Kareem", "Jamil",
+         // "Nader"};
+          
+             for (int i=0; i<name.length; i++) {
+            name[i]=JOptionPane.showInputDialog("أدخل اسم الطالب رقم "+(i+1));
+          mark[i]=Integer.parseInt(JOptionPane.showInputDialog("أدخل درجة الطالب رقم "+(i+1)));
+             }
+          int temp_mark;
+          String temp_name;
+          String title="The results are: ";
+          String output="The students' marks in original order:\n";
+          output+="Name\tMark\n------------------\t--------\n";
+         
+          for(int i=0; i<mark.length; i++)
+          output+=name[i]+"\t"+mark[i]+"\n";
+          
+            int option=Integer.parseInt(JOptionPane.showInputDialog("enter"));
+                 switch (option) {
+            case 1: 
+                for (int i=0; i<name.length;i++) 
+                       for(int j=0; j<mark.length-1; j++)
+          if(mark[j]<mark[j+1]){
+          temp_mark=mark[j];
+          mark[j]=mark[j+1];
+          mark[j+1]=temp_mark;
+          temp_name=name[j];
+          name[j]=name[j+1];
+          name[j+1]=temp_name;
+          }
+            break;
+            
+            case 2:  for (int i=0; i<name.length;i++) 
+                       for(int j=0; j<mark.length-1; j++)
+          if(mark[j] > mark[j+1]){
+          temp_mark=mark[j];
+          mark[j]=mark[j+1];
+          mark[j+1]=temp_mark;
+          temp_name=name[j];
+          name[j]=name[j+1];
+          name[j-1]=temp_name;
+          }
+             
+                    
+           
+
+                    
+   
+          }
+          output+="\n\nStudents' Marks in descending order:\n";
+          output+="Name\tMark\n------------------\t--------\n";
+          for(int i=0; i<mark.length; i++)
+          output+=name[i]+"\t"+mark[i]+"\n";
+          JOptionPane.showMessageDialog(null,title+"\n"+output+JOptionPane.PLAIN_MESSAGE);
+    }
+
+
+    }
+    
